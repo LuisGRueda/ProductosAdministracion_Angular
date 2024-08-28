@@ -1,0 +1,34 @@
+<div class="container">
+    <form id="formulario" class="login" (ngSubmit)="guardar( g )" #g="ngForm">
+        <h2>Registrate</h2>
+        <p id="ale">Velrifica los datos ingresados</p>
+        <div class="nombre">
+            <div class="invisible input">
+                <input [(ngModel)]="usuarios.id" name="id"  type="text" id="id"disabled="disabled">
+            </div>
+            <div class="input">
+                <label>Nombre</label>
+                <input [(ngModel)]="usuarios.nombre" name="nombre"  type="text" required>
+            </div>
+            <div class="input">
+                <label >Apellido</label>
+                <input [(ngModel)]="usuarios.apellido" name="apellido" type="text"  required>
+            </div>
+        </div>  
+        <div class="input">
+            <label >Email</label>
+            <input [(ngModel)]="usuarios.correo" name="correo" type="email" required>
+        </div>
+        <div class="input">
+            <label >Usuarios</label>
+            <input [(ngModel)]="usuarios.usuario"  name="usuario" type="text"  required>
+        </div>
+        <div class="input">
+            <label >Contraseña</label>
+            <input [(ngModel)]="usuarios.contrasenia"name="contrasenia"  type="password"  required >
+        </div>
+        <div class="input">
+            <button class="btnenviar" type="submit" >Registrar</button>
+        </div>     
+    </form>
+</div>

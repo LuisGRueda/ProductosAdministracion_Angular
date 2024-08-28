@@ -1,0 +1,77 @@
+<div class="contenedor animated fadeIn fast">
+    <div class="container" *ngIf=" productos.length<=0">
+        <h2>No se encontraron coincidencias</h2>
+        <hr>
+      </div>
+    <div class="grid-cards" >
+   
+        <!-- Card -->
+        <div class="card-1" *ngFor="let producto of productos; let i=index">
+            <div class="card-1__head">
+                <img
+                    [src]="producto.img"
+                    alt="Imagen de producto"
+                    class="card-1__img"
+                />
+                <div class="card-1__box">
+                    <img
+                        [src]="mostrarMarca(producto.marca)"
+                        alt="Imagen de marca de producto"
+                        class="card-1__marca"
+                    />
+                    <form class="rate">
+                        <p class="rate__up">
+                            <input
+                                id="rate__radio-1"
+                                type="radio"
+                                name="stars"
+                                value="5"
+                            />
+                            <label class="rate__start" for="rate__radio-1">★</label>
+                            <input
+                                id="rate__radio-2"
+                                type="radio"
+                                name="stars"
+                                value="4"
+                            />
+                            <label class="rate__start" for="rate__radio-2">★</label>
+                            <input
+                                id="rate__radio-3"
+                                type="radio"
+                                name="stars"
+                                value="3"
+                            />
+                            <label class="rate__start" for="rate__radio-3">★</label>
+                            <input
+                                id="rate__radio-4"
+                                type="radio"
+                                name="stars"
+                                value="2"
+                            />
+                            <label class="rate__start" for="rate__radio-4">★</label>
+                            <input
+                                id="rate__radio-5"
+                                type="radio"
+                                name="stars"
+                                value="1"
+                            />
+                            <label class="rate__start" for="rate__radio-5">★</label>
+                            <span class="rate__total">(58)</span>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="card-1__body">
+                <a (click)="VerHeroe(producto.nombre)" class="card-1__title"
+                    >{{producto.nombre}}  </a
+                >
+                <span class="card-1_price">${{producto.precio}}</span>
+                <span class="card-1__discount">$99</span>
+                <span class="card-1__saving">Ahorre: 71%</span>
+            </div>
+        </div>
+        <!-- Card -->
+    </div>
+    
+    
+</div>

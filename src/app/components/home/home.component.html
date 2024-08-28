@@ -1,0 +1,604 @@
+<div class="contenedor animated fadeIn fast">
+<!-- Slider -->
+<div class="container-slider">
+    <div class="slider" id="slider">
+        <div class="slider__section">
+            <img src="assets/img/1.jpg" alt="" class="slider__img" />
+        </div>
+        <div class="slider__section">
+            <img src="assets/img/3.jpg" alt="" class="slider__img" />
+        </div>
+        <div class="slider__section">
+            <img src="assets/img/2.jpg" alt="" class="slider__img" />
+        </div>
+        <div class="slider__section">
+            <img src="assets/img/4.jpg" alt="" class="slider__img" />
+        </div>
+    </div>
+
+    <div class="slider__btn slider__btn--right" id="btn-right">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="slider__btn slider__btn--left" id="btn-left">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+</div>
+<!-- Slider -->
+
+<!-- Container Grid (Estructura) -->
+<div class="grid-container">
+    <!-- Main -->
+    <div class="main">
+        <h2 class="title-1 title-1--blue">Las Mejores Ofertas de Hoy</h2>
+        <div class="grid-cards" >
+            <!-- Card -->
+            <div class="card-1" *ngFor="let producto of productos; let i=index">
+                <div>
+                    <div class="card-1__head">
+                        <img
+                            [src]="producto.img"
+                            alt="Imagen de producto"
+                            class="card-1__img"
+                        />
+                        <div class="card-1__box">
+                            <img
+                                [src]="mostrarMarca(producto.marca)"
+                                alt="Imagen de marca de producto"
+                                class="card-1__marca"
+                            />
+                            <form class="rate">
+                                <p class="rate__up">
+                                    <input
+                                        id="rate__radio-1"
+                                        type="radio"
+                                        name="stars"
+                                        value="5"
+                                    />
+                                    <label class="rate__start" for="rate__radio-1">★</label>
+                                    <input
+                                        id="rate__radio-2"
+                                        type="radio"
+                                        name="stars"
+                                        value="4"
+                                    />
+                                    <label class="rate__start" for="rate__radio-2">★</label>
+                                    <input
+                                        id="rate__radio-3"
+                                        type="radio"
+                                        name="stars"
+                                        value="3"
+                                    />
+                                    <label class="rate__start" for="rate__radio-3">★</label>
+                                    <input
+                                        id="rate__radio-4"
+                                        type="radio"
+                                        name="stars"
+                                        value="2"
+                                    />
+                                    <label class="rate__start" for="rate__radio-4">★</label>
+                                    <input
+                                        id="rate__radio-5"
+                                        type="radio"
+                                        name="stars"
+                                        value="1"
+                                    />
+                                    <label class="rate__start" for="rate__radio-5">★</label>
+                                    <span class="rate__total">(58)</span>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-1__body">
+                        <a (click)="VerHeroe(producto.nombre)" class="card-1__title"
+                            >{{producto.nombre}}  </a
+                        >
+                        <span class="card-1_price">${{producto.precio}}</span>
+                        <span class="card-1__discount">$99</span>
+                        <span class="card-1__saving">Ahorre: 71%</span>
+                    </div>
+                </div>
+               
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+    <!-- Main -->
+
+    <!-- Aside -->
+    <div class="aside">
+        <ul class="list">
+            <li class="list__item">
+                <a (click)="VerCat('Componentes')" class="list__link"
+                    >Componentes&nbsp;<i class="fas fa-chevron-down"></i
+                ></a>
+                <ul class="list__submenu">
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Disipadores</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Fuentes</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Gabinetes</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">HDD</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Memorias</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Procesadores</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">SSD</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Tarjetas de video</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Tarjetas de sonido</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="list__item">
+                <a (click)="VerCat('Perifericos')" class="list__link"
+                    >Periféricos&nbsp;<i class="fas fa-chevron-down"></i
+                ></a>
+                <ul class="list__submenu">
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Auriculares</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Impresoras</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Monitores</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Mouses</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Teclados</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="list__item">
+                <a href="#" class="list__link"
+                    >Electrónicos&nbsp;<i class="fas fa-chevron-down"></i
+                ></a>
+                <ul class="list__submenu">
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Electrodomésticos</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Tabletas</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Teléfonos Móviles</a>
+                    </li>
+                    <li class="list__sub-item">
+                        <a href="#" class="list__sub-link">Televisores</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- Aside -->
+
+    <!-- Content -->
+    <div class="content">
+        <h2 class="title-1 title-1--blue">Tendencias</h2>
+        <div class="grid-cards grid-cards--auto">
+            <!-- Card -->
+            <div class="card-2">
+                <div class="card-2__head">
+                    <img
+                        src="assets/img/p3.jpg"
+                        alt="Imagen de producto"
+                        class="card-2__img"
+                    />
+                </div>
+                <div class="card-2__body">
+                    <div class="card-2__box">
+                        <img
+                            src="assets/img/Samsung.gif"
+                            alt="Imagen de marca de producto"
+                            class="card-2__marca"
+                        />
+                        <form class="rate">
+                            <p class="rate__up">
+                                <input
+                                    id="rate__radio-1"
+                                    type="radio"
+                                    name="stars"
+                                    value="5"
+                                />
+                                <label class="rate__start" for="rate__radio-1">★</label>
+                                <input
+                                    id="rate__radio-2"
+                                    type="radio"
+                                    name="stars"
+                                    value="4"
+                                />
+                                <label class="rate__start" for="rate__radio-2">★</label>
+                                <input
+                                    id="rate__radio-3"
+                                    type="radio"
+                                    name="stars"
+                                    value="3"
+                                />
+                                <label class="rate__start" for="rate__radio-3">★</label>
+                                <input
+                                    id="rate__radio-4"
+                                    type="radio"
+                                    name="stars"
+                                    value="2"
+                                />
+                                <label class="rate__start" for="rate__radio-4">★</label>
+                                <input
+                                    id="rate__radio-5"
+                                    type="radio"
+                                    name="stars"
+                                    value="1"
+                                />
+                                <label class="rate__start" for="rate__radio-5">★</label>
+                                <span class="rate__total">(112)</span>
+                            </p>
+                        </form>
+                    </div>
+                    <a href="#" class="card-2__title"
+                        >Intel Core i5-11600K 3.9 GHz LGA 1200 BX8070811600K Desktop
+                        Processor</a
+                    >
+                    <span class="card-2_price">$269</span>
+                    <span class="card-2__discount">$250</span>
+                    <span class="card-2__saving">Ahorre: 15%</span>
+                </div>
+            </div>
+            <!-- Card -->
+
+            <!-- Card -->
+            <div class="card-2">
+                <div class="card-2__head">
+                    <img
+                        src="assets/img/p3.jpg"
+                        alt="Imagen de producto"
+                        class="card-2__img"
+                    />
+                </div>
+                <div class="card-2__body">
+                    <div class="card-2__box">
+                        <img
+                            src="assets/img/Samsung.gif"
+                            alt="Imagen de marca de producto"
+                            class="card-2__marca"
+                        />
+                        <form class="rate">
+                            <p class="rate__up">
+                                <input
+                                    id="rate__radio-1"
+                                    type="radio"
+                                    name="stars"
+                                    value="5"
+                                />
+                                <label class="rate__start" for="rate__radio-1">★</label>
+                                <input
+                                    id="rate__radio-2"
+                                    type="radio"
+                                    name="stars"
+                                    value="4"
+                                />
+                                <label class="rate__start" for="rate__radio-2">★</label>
+                                <input
+                                    id="rate__radio-3"
+                                    type="radio"
+                                    name="stars"
+                                    value="3"
+                                />
+                                <label class="rate__start" for="rate__radio-3">★</label>
+                                <input
+                                    id="rate__radio-4"
+                                    type="radio"
+                                    name="stars"
+                                    value="2"
+                                />
+                                <label class="rate__start" for="rate__radio-4">★</label>
+                                <input
+                                    id="rate__radio-5"
+                                    type="radio"
+                                    name="stars"
+                                    value="1"
+                                />
+                                <label class="rate__start" for="rate__radio-5">★</label>
+                                <span class="rate__total">(112)</span>
+                            </p>
+                        </form>
+                    </div>
+                    <a href="#" class="card-2__title"
+                        >Intel Core i5-11600K 3.9 GHz LGA 1200 BX8070811600K Desktop
+                        Processor</a
+                    >
+                    <span class="card-2_price">$269</span>
+                    <span class="card-2__discount">$250</span>
+                    <span class="card-2__saving">Ahorre: 15%</span>
+                </div>
+            </div>
+            <!-- Card -->
+
+            <!-- Card -->
+            <div class="card-2">
+                <div class="card-2__head">
+                    <img
+                        src="assets/img/p3.jpg"
+                        alt="Imagen de producto"
+                        class="card-2__img"
+                    />
+                </div>
+                <div class="card-2__body">
+                    <div class="card-2__box">
+                        <img
+                            src="assets/img/Samsung.gif"
+                            alt="Imagen de marca de producto"
+                            class="card-2__marca"
+                        />
+                        <form class="rate">
+                            <p class="rate__up">
+                                <input
+                                    id="rate__radio-1"
+                                    type="radio"
+                                    name="stars"
+                                    value="5"
+                                />
+                                <label class="rate__start" for="rate__radio-1">★</label>
+                                <input
+                                    id="rate__radio-2"
+                                    type="radio"
+                                    name="stars"
+                                    value="4"
+                                />
+                                <label class="rate__start" for="rate__radio-2">★</label>
+                                <input
+                                    id="rate__radio-3"
+                                    type="radio"
+                                    name="stars"
+                                    value="3"
+                                />
+                                <label class="rate__start" for="rate__radio-3">★</label>
+                                <input
+                                    id="rate__radio-4"
+                                    type="radio"
+                                    name="stars"
+                                    value="2"
+                                />
+                                <label class="rate__start" for="rate__radio-4">★</label>
+                                <input
+                                    id="rate__radio-5"
+                                    type="radio"
+                                    name="stars"
+                                    value="1"
+                                />
+                                <label class="rate__start" for="rate__radio-5">★</label>
+                                <span class="rate__total">(112)</span>
+                            </p>
+                        </form>
+                    </div>
+                    <a href="#" class="card-2__title"
+                        >Intel Core i5-11600K 3.9 GHz LGA 1200 BX8070811600K Desktop
+                        Processor</a
+                    >
+                    <span class="card-2_price">$269</span>
+                    <span class="card-2__discount">$250</span>
+                    <span class="card-2__saving">Ahorre: 15%</span>
+                </div>
+            </div>
+            <!-- Card -->
+
+            <!-- Card -->
+            <div class="card-2">
+                <div class="card-2__head">
+                    <img
+                        src="assets/img/p3.jpg"
+                        alt="Imagen de producto"
+                        class="card-2__img"
+                    />
+                </div>
+                <div class="card-2__body">
+                    <div class="card-2__box">
+                        <img
+                            src="assets/img/Samsung.gif"
+                            alt="Imagen de marca de producto"
+                            class="card-2__marca"
+                        />
+                        <form class="rate">
+                            <p class="rate__up">
+                                <input
+                                    id="rate__radio-1"
+                                    type="radio"
+                                    name="stars"
+                                    value="5"
+                                />
+                                <label class="rate__start" for="rate__radio-1">★</label>
+                                <input
+                                    id="rate__radio-2"
+                                    type="radio"
+                                    name="stars"
+                                    value="4"
+                                />
+                                <label class="rate__start" for="rate__radio-2">★</label>
+                                <input
+                                    id="rate__radio-3"
+                                    type="radio"
+                                    name="stars"
+                                    value="3"
+                                />
+                                <label class="rate__start" for="rate__radio-3">★</label>
+                                <input
+                                    id="rate__radio-4"
+                                    type="radio"
+                                    name="stars"
+                                    value="2"
+                                />
+                                <label class="rate__start" for="rate__radio-4">★</label>
+                                <input
+                                    id="rate__radio-5"
+                                    type="radio"
+                                    name="stars"
+                                    value="1"
+                                />
+                                <label class="rate__start" for="rate__radio-5">★</label>
+                                <span class="rate__total">(112)</span>
+                            </p>
+                        </form>
+                    </div>
+                    <a href="#" class="card-2__title"
+                        >Intel Core i5-11600K 3.9 GHz LGA 1200 BX8070811600K Desktop
+                        Processor</a
+                    >
+                    <span class="card-2_price">$269</span>
+                    <span class="card-2__discount">$250</span>
+                    <span class="card-2__saving">Ahorre: 15%</span>
+                </div>
+            </div>
+            <!-- Card -->
+
+            <!-- Card -->
+            <div class="card-2">
+                <div class="card-2__head">
+                    <img
+                        src="assets/img/p3.jpg"
+                        alt="Imagen de producto"
+                        class="card-2__img"
+                    />
+                </div>
+                <div class="card-2__body">
+                    <div class="card-2__box">
+                        <img
+                            src="assets/img/Samsung.gif"
+                            alt="Imagen de marca de producto"
+                            class="card-2__marca"
+                        />
+                        <form class="rate">
+                            <p class="rate__up">
+                                <input
+                                    id="rate__radio-1"
+                                    type="radio"
+                                    name="stars"
+                                    value="5"
+                                />
+                                <label class="rate__start" for="rate__radio-1">★</label>
+                                <input
+                                    id="rate__radio-2"
+                                    type="radio"
+                                    name="stars"
+                                    value="4"
+                                />
+                                <label class="rate__start" for="rate__radio-2">★</label>
+                                <input
+                                    id="rate__radio-3"
+                                    type="radio"
+                                    name="stars"
+                                    value="3"
+                                />
+                                <label class="rate__start" for="rate__radio-3">★</label>
+                                <input
+                                    id="rate__radio-4"
+                                    type="radio"
+                                    name="stars"
+                                    value="2"
+                                />
+                                <label class="rate__start" for="rate__radio-4">★</label>
+                                <input
+                                    id="rate__radio-5"
+                                    type="radio"
+                                    name="stars"
+                                    value="1"
+                                />
+                                <label class="rate__start" for="rate__radio-5">★</label>
+                                <span class="rate__total">(112)</span>
+                            </p>
+                        </form>
+                    </div>
+                    <a href="#" class="card-2__title"
+                        >Intel Core i5-11600K 3.9 GHz LGA 1200 BX8070811600K Desktop
+                        Processor</a
+                    >
+                    <span class="card-2_price">$269</span>
+                    <span class="card-2__discount">$250</span>
+                    <span class="card-2__saving">Ahorre: 15%</span>
+                </div>
+            </div>
+            <!-- Card -->
+
+            <!-- Card -->
+            <div class="card-2">
+                <div class="card-2__head">
+                    <img
+                        src="assets/img/p3.jpg"
+                        alt="Imagen de producto"
+                        class="card-2__img"
+                    />
+                </div>
+                <div class="card-2__body">
+                    <div class="card-2__box">
+                        <img
+                            src="assets/img/Samsung.gif"
+                            alt="Imagen de marca de producto"
+                            class="card-2__marca"
+                        />
+                        <form class="rate">
+                            <p class="rate__up">
+                                <input
+                                    id="rate__radio-1"
+                                    type="radio"
+                                    name="stars"
+                                    value="5"
+                                />
+                                <label class="rate__start" for="rate__radio-1">★</label>
+                                <input
+                                    id="rate__radio-2"
+                                    type="radio"
+                                    name="stars"
+                                    value="4"
+                                />
+                                <label class="rate__start" for="rate__radio-2">★</label>
+                                <input
+                                    id="rate__radio-3"
+                                    type="radio"
+                                    name="stars"
+                                    value="3"
+                                />
+                                <label class="rate__start" for="rate__radio-3">★</label>
+                                <input
+                                    id="rate__radio-4"
+                                    type="radio"
+                                    name="stars"
+                                    value="2"
+                                />
+                                <label class="rate__start" for="rate__radio-4">★</label>
+                                <input
+                                    id="rate__radio-5"
+                                    type="radio"
+                                    name="stars"
+                                    value="1"
+                                />
+                                <label class="rate__start" for="rate__radio-5">★</label>
+                                <span class="rate__total">(112)</span>
+                            </p>
+                        </form>
+                    </div>
+                    <a href="#" class="card-2__title"
+                        >Intel Core i5-11600K 3.9 GHz LGA 1200 BX8070811600K Desktop
+                        Processor</a
+                    >
+                    <span class="card-2_price">$269</span>
+                    <span class="card-2__discount">$250</span>
+                    <span class="card-2__saving">Ahorre: 15%</span>
+                </div>
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+    <!-- Content -->
+
+</div>

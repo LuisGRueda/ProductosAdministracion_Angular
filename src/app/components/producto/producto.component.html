@@ -1,0 +1,59 @@
+<div class="contenedor">
+     <div class="cont-producto">
+          <div class="cont-img">
+               <img [src]="producto.img" alt="">
+          </div>
+          <div class="cont-details">
+                <h2 class="txt" >{{producto.nombre}}</h2>
+                <h1 class="txt">${{producto.precio}}</h1>
+                <h3 class="txt">details</h3>
+                <p class="txt">{{producto.descripcion}}</p> 
+                <div class="input">
+                    <input  type="number" id="number" required #cant>
+                    <button (click)="Comprar()">AÑADIR A CARRITO</button>
+                </div>    
+          </div>
+     </div>
+     <div id="MiModal" class="modal2"  #MiModal>
+          <div class="flex2" id="flex2">
+              <div class="contenido-modal">
+                  <div class="container">
+                    <form id="formulario" (ngSubmit)="GuardarVenta(f)"  #f="ngForm">
+                         <h2>Formulario de Compra</h2>
+                         <br>
+                         <div class="nombre">
+                             <div class="invisible input">
+                                 <label for="id">d</label>
+                                 <input   type="text" id="id" value="0">
+                             </div>
+                             <div class="inpu">
+                                 <label for="name">Usuario</label>
+                                 <input [(ngModel)]="venta.user"  type="text" name="user" id="name" disabled value="{{usuario}}" >
+                             </div>
+                             <div class="inpu">
+                                 <label>Nombre del Producto</label>
+                                 <input [(ngModel)]="venta.nombreProducto" name="nombreProducto" type="text" value="{{producto.nombre}}" >
+                             </div>
+                         </div>  
+                         <div class="inpu">
+                             <label for="email">descripcion del Producto</label>
+                             <input [(ngModel)]="venta.descripcion" type="text" name="descripcion" id="email" value="{{producto.descripcion}}" required>
+                         </div>
+                         <div class="inpu">
+                             <label for="number">Fecha de Compra</label>
+                             <input [(ngModel)]="venta.fecha" type="text" name="fecha" id="number" value="{{date}}"  required >
+                         </div>
+                         <div class="inpu">
+                             <button class="btnenviar" type="submit" >Comprar</button>
+                         </div>
+                         <div class="inpu">
+                              <button class="btncancelar" (click)="cerrar()"  >Cancelar</button>
+                          </div>
+                         
+                     </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+</div>
